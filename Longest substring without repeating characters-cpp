@@ -1,0 +1,22 @@
+    int lengthOfLongestSubstring(string s) {
+        int i=0,j=0,l=0,maxl=0;
+        set<char> ch;
+        while(j<=i && i<s.length()){
+            if(ch.find(s[i])==ch.end()){
+                ch.insert(s[i]);
+                i++;
+            }
+            else{
+                ch.erase(s[j]);
+                j++;    
+            }
+            l = i-j+1;
+            if(l>maxl){
+                maxl=l;
+            }
+        }
+        if(s.length()==0){
+            return 0;
+        }
+        return (maxl-1);
+    }
